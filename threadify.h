@@ -63,7 +63,7 @@ pthread_create(&thread_name, NULL, (void*)NAME(__pthread_wrapper), NULL);
 #define THREAD_RUN3(thread_name, function, arg1) \
 THREAD_POOL_WAIT() \
 typedef struct { \
-  typeof(arg1)* _arg1; \
+  __typeof__(arg1)* _arg1; \
 } NAME(__pthread_struct); \
 void NAME(__pthread_wrapper)(NAME(__pthread_struct)* data) {\
   do {function(*data->_arg1);} while(0); \
@@ -76,8 +76,8 @@ pthread_create(&thread_name, NULL, (void*)NAME(__pthread_wrapper), &NAME(__data)
 #define THREAD_RUN4(thread_name, function, arg1, arg2) \
 THREAD_POOL_WAIT() \
 typedef struct { \
-  typeof(arg1)* _arg1; \
-  typeof(arg2)* _arg2; \
+  __typeof__(arg1)* _arg1; \
+  __typeof__(arg2)* _arg2; \
 } NAME(__pthread_struct); \
 void NAME(__pthread_wrapper)(NAME(__pthread_struct)* data) {\
   do {function(*data->_arg1, *data->_arg2);} while(0); \
@@ -91,9 +91,9 @@ pthread_create(&thread_name, NULL, (void*)NAME(__pthread_wrapper), &NAME(__data)
 #define THREAD_RUN5(thread_name, function, arg1, arg2, arg3) \
 THREAD_POOL_WAIT() \
 typedef struct { \
-  typeof(arg1)* _arg1; \
-  typeof(arg2)* _arg2; \
-  typeof(arg3)* _arg3; \
+  __typeof__(arg1)* _arg1; \
+  __typeof__(arg2)* _arg2; \
+  __typeof__(arg3)* _arg3; \
 } NAME(__pthread_struct); \
 void NAME(__pthread_wrapper)(NAME(__pthread_struct)* data) {\
   do {function(*data->_arg1, *data->_arg2, *data->_arg3);} while(0); \
@@ -108,10 +108,10 @@ pthread_create(&thread_name, NULL, (void*)NAME(__pthread_wrapper), &NAME(__data)
 #define THREAD_RUN6(thread_name, function, arg1, arg2, arg3, arg4) \
 THREAD_POOL_WAIT() \
 typedef struct { \
-  typeof(arg1)* _arg1; \
-  typeof(arg2)* _arg2; \
-  typeof(arg3)* _arg3; \
-  typeof(arg4)* _arg4; \
+  __typeof__(arg1)* _arg1; \
+  __typeof__(arg2)* _arg2; \
+  __typeof__(arg3)* _arg3; \
+  __typeof__(arg4)* _arg4; \
 } NAME(__pthread_struct); \
 void NAME(__pthread_wrapper)(NAME(__pthread_struct)* data) {\
   do {function(*data->_arg1, *data->_arg2, *data->_arg3, *data->_arg4);} while(0); \
@@ -127,11 +127,11 @@ pthread_create(&thread_name, NULL, (void*)NAME(__pthread_wrapper), &NAME(__data)
 #define THREAD_RUN7(thread_name, function, arg1, arg2, arg3, arg4, arg5) \
 THREAD_POOL_WAIT() \
 typedef struct { \
-  typeof(arg1)* _arg1; \
-  typeof(arg2)* _arg2; \
-  typeof(arg3)* _arg3; \
-  typeof(arg4)* _arg4; \
-  typeof(arg5)* _arg5; \
+  __typeof__(arg1)* _arg1; \
+  __typeof__(arg2)* _arg2; \
+  __typeof__(arg3)* _arg3; \
+  __typeof__(arg4)* _arg4; \
+  __typeof__(arg5)* _arg5; \
 } NAME(__pthread_struct); \
 void NAME(__pthread_wrapper)(NAME(__pthread_struct)* data) {\
   do {function(*data->_arg1, *data->_arg2, *data->_arg3, *data->_arg4, *data->_arg5);} while(0); \
@@ -148,12 +148,12 @@ pthread_create(&thread_name, NULL, (void*)NAME(__pthread_wrapper), &NAME(__data)
 #define THREAD_RUN8(thread_name, function, arg1, arg2, arg3, arg4, arg5, arg6) \
 THREAD_POOL_WAIT() \
 typedef struct { \
-  typeof(arg1)* _arg1; \
-  typeof(arg2)* _arg2; \
-  typeof(arg3)* _arg3; \
-  typeof(arg4)* _arg4; \
-  typeof(arg5)* _arg5; \
-  typeof(arg6)* _arg6; \
+  __typeof__(arg1)* _arg1; \
+  __typeof__(arg2)* _arg2; \
+  __typeof__(arg3)* _arg3; \
+  __typeof__(arg4)* _arg4; \
+  __typeof__(arg5)* _arg5; \
+  __typeof__(arg6)* _arg6; \
 } NAME(__pthread_struct); \
 void NAME(__pthread_wrapper)(NAME(__pthread_struct)* data) {\
   do {function(*data->_arg1, *data->_arg2, *data->_arg3, *data->_arg4, *data->_arg5, *data->arg6);} while(0); \
